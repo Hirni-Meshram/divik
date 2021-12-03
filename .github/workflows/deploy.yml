@@ -145,4 +145,6 @@ jobs:
             poetry build -f wheel && \
             deactivate'
       - name: Publish Python package
-        run: poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
+        run: |
+            pip install poetry
+            poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
