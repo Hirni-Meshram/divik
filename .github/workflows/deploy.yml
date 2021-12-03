@@ -110,8 +110,8 @@ jobs:
         if: matrix.os == 'macos-latest'
       - name: Build Python package
         run: |
+          pip install numpy
           poetry install
-          numpy --version
           poetry build -f wheel
       - name: Publish Python package
         run: poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
@@ -119,9 +119,9 @@ jobs:
   push_aarch64_wheels:
     strategy:
       matrix:
-        pyver: [cp39-cp39, cp37-cp37m, cp38-cp38]
+        pyver: [cp37-cp37m, cp38-cp38, cp39-cp39]
       fail-fast: false
-    name: ${{ matrix.pyver }} ubuntu-latest wheel      
+    name: ${{ matrix.pyver }} ubuntu-latest aarch64 wheel      
     runs-on: ubuntu-latest
     env:
       py: /opt/python/${{ matrix.pyver }}/bin/python
