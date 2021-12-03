@@ -98,7 +98,6 @@ jobs:
       - name: Setup poetry
         run: |
           pip install poetry poetry-core==1.0.0
-          numpy --version
       - name: Setup C++ env
         run: |
           echo "/usr/local/opt/llvm/bin" >> $GITHUB_PATH
