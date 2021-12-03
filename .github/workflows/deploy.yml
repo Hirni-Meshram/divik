@@ -110,7 +110,6 @@ jobs:
         if: matrix.os == 'macos-latest'
       - name: Build Python package
         run: |
-          pip install numpy
           poetry install
           poetry build -f wheel
       - name: Publish Python package
@@ -140,7 +139,6 @@ jobs:
             source .env/bin/activate && \
             pip install --upgrade pip && \
             pip install poetry poetry-core==1.0.0 && \
-            #yum install -y libffi-devel && \
             poetry install && \
             poetry build -f wheel && \
             deactivate'
