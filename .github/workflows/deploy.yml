@@ -110,8 +110,8 @@ jobs:
         if: matrix.os == 'macos-latest'
       - name: Build Python package
         run: |
-          numpy --version
           poetry install
+          numpy --version
           poetry build -f wheel
       - name: Publish Python package
         run: poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
