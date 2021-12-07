@@ -140,6 +140,7 @@ jobs:
             pip install --upgrade pip && \
             pip install poetry poetry-core==1.0.0 && \
             poetry install && \
+            poetry install pandas==1.3.0 && \
             poetry build -f wheel && \
             deactivate'
       - name: Publish Python package
